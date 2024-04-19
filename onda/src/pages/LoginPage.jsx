@@ -1,10 +1,9 @@
-import React from 'react';
 const LoginPage = () => {
-    return (
-        <div>
-            <hl>로그인입니다</hl>
-        </div>
-    );
+  return (
+    <>
+      <h1>로그인페이지</h1>
+    </>
+  );
 };
 
 export default LoginPage;

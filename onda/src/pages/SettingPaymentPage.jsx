@@ -1,6 +1,9 @@
-import React from 'react';
 const SettingPaymentPage = () => {
-    return <div>요금플랜설정</div>;
+  return (
+    <>
+      <h1>요금플랜</h1>
+    </>
+  );
 };
 
 export default SettingPaymentPage;

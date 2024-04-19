@@ -1,6 +1,9 @@
-import React from 'react';
 const SettingRoomPage = () => {
-    return <div>객실설정</div>;
+  return (
+    <>
+      <h1>객실설정</h1>
+    </>
+  );
 };
 
 export default SettingRoomPage;
