@@ -12,7 +12,7 @@ const categories = [
     name: 'settingpay',
     text: '요금플랜',
   },
-    {
+  {
     name: 'mypage',
     text: '마이페이지',
   },
@@ -22,19 +22,18 @@ const NavBar = ({ children }) => {
   return (
     <div
       css={css({
-            display: 'flex',
-            cursor: 'pointer',
-            justifyContent: 'space-between',
-            padding: '1rem',
-            backgroundColor: '#add8e6',
-            marginRight: '2rem',
-           fontSize: '1.125rem',
+        display: 'flex',
+        cursor: 'pointer',
+        justifyContent: 'space-between',
+        padding: '1rem',
+        marginRight: '2rem',
+        fontSize: '1.125rem',
 
-          transition: 'color 0.2s',
-          '&:hover': {
+        transition: 'color 0.2s',
+        '&:hover': {
           color: '#004FC5',
-          },
-          '&:last-of-type': {
+        },
+        '&:last-of-type': {
           marginRight: 0, // 마지막 항목은 마진을 0으로 설정
         },
       })}
@@ -43,7 +42,6 @@ const NavBar = ({ children }) => {
     </div>
   );
 };
-
 
 const AppLogo = () => {
   const navigate = useNavigate();
@@ -125,7 +123,6 @@ const Categories = () => {
         </div>
         <LoginButton>로그인</LoginButton>
       </NavBar>
-
     </div>
   );
 };
