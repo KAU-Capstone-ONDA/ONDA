@@ -15,16 +15,16 @@ const LoginButton = ({ children, platform }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: '1.2rem',
+        fontSize: '1rem',
         cursor: 'pointer',
         textDecoration: 'none',
         backgroundColor: backgroundColor,
         color: textColor,
         border: 'none',
-        padding: '0.6em 3em',
+        padding: '0.6em 6em',
         transition: 'all 0.3s ease',
         fontWeight: 'bold',
-        borderRadius: '10px',
+        borderRadius: '6px',
       }}
     >
       <img
