@@ -12,6 +12,10 @@ const categories = [
     name: 'settingpay',
     text: '요금플랜',
   },
+  {
+    name: 'mypage',
+    text: '마이페이지',
+  },
 ];
 
 const NavBar = ({ children }) => {
@@ -19,9 +23,19 @@ const NavBar = ({ children }) => {
     <div
       css={css({
         display: 'flex',
+        cursor: 'pointer',
         justifyContent: 'space-between',
-        alignItems: 'center',
         padding: '1rem',
+        marginRight: '2rem',
+        fontSize: '1.125rem',
+
+        transition: 'color 0.2s',
+        '&:hover': {
+          color: '#004FC5',
+        },
+        '&:last-of-type': {
+          marginRight: 0, // 마지막 항목은 마진을 0으로 설정
+        },
       })}
     >
       {children}
