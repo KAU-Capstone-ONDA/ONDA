@@ -9,12 +9,12 @@ const categories = [
     text: '객실설정',
   },
   {
-    name: 'settingpay',
-    text: '요금플랜',
+    name: 'competition',
+    text: '경쟁업체 등록',
   },
   {
-    name: 'mypage',
-    text: '마이페이지',
+    name: 'settingpay',
+    text: '요금플랜',
   },
 ];
 
@@ -22,19 +22,26 @@ const NavBar = ({ children }) => {
   return (
     <div
       css={css({
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '30px',
         display: 'flex',
         cursor: 'pointer',
         justifyContent: 'space-between',
         padding: '1rem',
         marginRight: '2rem',
         fontSize: '1.125rem',
-
+        alignItems: 'center',
+        fontWeight: 'bold',
+        backgroundColor: '#ffffff',
         transition: 'color 0.2s',
         '&:hover': {
           color: '#004FC5',
         },
         '&:last-of-type': {
-          marginRight: 0, // 마지막 항목은 마진을 0으로 설정
+          marginRight: 0,
         },
       })}
     >
@@ -101,7 +108,7 @@ const LoginButton = ({ children }) => {
         borderRadius: '4px',
         cursor: 'pointer',
         '&:hover': {
-          backgroundColor: '#002b80',
+          fontWeight: 'bold',
         },
       }}
       onClick={() => navigate('/login')}
