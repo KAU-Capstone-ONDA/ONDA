@@ -2,6 +2,7 @@
 import { css } from '@emotion/react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import appLogo from '../assets/applogo.svg';
+import UserAuth from '../hooks/UserAuth';
 
 const categories = [
   {
@@ -118,7 +119,33 @@ const LoginButton = ({ children }) => {
   );
 };
 
+const MyPageButton = ({ children }) => {
+  const navigate = useNavigate();
+
+  return (
+    <button
+      css={{
+        fontSize: '1rem',
+        padding: '0.5rem 1rem',
+        backgroundColor: '#004FC5',
+        color: 'white',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        '&:hover': {
+          fontWeight: 'bold',
+        },
+      }}
+      onClick={() => navigate('/mypage')}
+    >
+      {children}
+    </button>
+  );
+};
+
 const Categories = () => {
+  const { isLoggedIn } = UserAuth();
+
   return (
     <div>
       <NavBar>
@@ -128,7 +155,8 @@ const Categories = () => {
             <NavItemButton prop={c}>{c.text}</NavItemButton>
           ))}
         </div>
-        <LoginButton>로그인</LoginButton>
+        {isLoggedIn && <MyPageButton>마이페이지</MyPageButton>}
+        {!isLoggedIn && <LoginButton>로그인</LoginButton>}
       </NavBar>
     </div>
   );

@@ -9,7 +9,10 @@ import Mypage from './pages/Mypage';
 import RedirectPage from './pages/login/RedirectPage';
 import CompetitionPage from './pages/CompetitionPage';
 import Spacer from './components/common/Spacer';
+import UserAuth from './hooks/UserAuth'
 const App = () => {
+  const { isLoggedIn } = UserAuth();
+
   return (
     <div>
       <Categories />
@@ -22,10 +25,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/settingroom" element={<SettingRoomPage />} />
-          <Route path="/competition" element={<CompetitionPage />} />
-          <Route path="/settingpay" element={<SettingPaymentPage />} />
-          <Route path="/mypage" element={<Mypage />} />
+          {isLoggedIn && (
+            <>
+              <Route path="/settingroom" element={<SettingRoomPage />} />
+              <Route path="/competition" element={<CompetitionPage />} />
+              <Route path="/settingpay" element={<SettingPaymentPage />} />
+              <Route path="/mypage" element={<Mypage />} />
+            </>
+          )}
           <Route exact path="/kakaoLogin" element={<RedirectPage />} />
         </Routes>
       </div>
