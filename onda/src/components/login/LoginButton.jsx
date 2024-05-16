@@ -3,7 +3,7 @@ import { Platform } from '../../Enum';
 import naverAppLogo from '../../assets/ic_login_naver.png';
 import kakaoAppLogo from '../../assets/ic_login_kakao.png';
 
-const LoginButton = ({ children, platform }) => {
+const LoginButton = ({ children, platform, onLogin }) => {
   let backgroundColor = platform === Platform.NAVER ? '#06BD34' : '#FFE812';
   let textColor = platform === Platform.NAVER ? '#fff' : '#000';
   let platformLogo =
@@ -11,6 +11,7 @@ const LoginButton = ({ children, platform }) => {
 
   return (
     <button
+      onClick={onLogin}
       css={{
         display: 'flex',
         alignItems: 'center',

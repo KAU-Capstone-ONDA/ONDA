@@ -2,6 +2,7 @@
 import { css } from '@emotion/react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import appLogo from '../assets/applogo.svg';
+import UserAuth from '../hooks/UserAuth';
 
 const categories = [
   {
@@ -9,12 +10,12 @@ const categories = [
     text: '객실설정',
   },
   {
-    name: 'settingpay',
-    text: '요금플랜',
+    name: 'competition',
+    text: '경쟁업체 등록',
   },
   {
-    name: 'mypage',
-    text: '마이페이지',
+    name: 'settingpay',
+    text: '요금플랜',
   },
 ];
 
@@ -22,19 +23,26 @@ const NavBar = ({ children }) => {
   return (
     <div
       css={css({
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '30px',
         display: 'flex',
         cursor: 'pointer',
         justifyContent: 'space-between',
         padding: '1rem',
         marginRight: '2rem',
         fontSize: '1.125rem',
-
+        alignItems: 'center',
+        fontWeight: 'bold',
+        backgroundColor: '#ffffff',
         transition: 'color 0.2s',
         '&:hover': {
           color: '#004FC5',
         },
         '&:last-of-type': {
-          marginRight: 0, // 마지막 항목은 마진을 0으로 설정
+          marginRight: 0,
         },
       })}
     >
@@ -101,7 +109,7 @@ const LoginButton = ({ children }) => {
         borderRadius: '4px',
         cursor: 'pointer',
         '&:hover': {
-          backgroundColor: '#002b80',
+          fontWeight: 'bold',
         },
       }}
       onClick={() => navigate('/login')}
@@ -111,7 +119,33 @@ const LoginButton = ({ children }) => {
   );
 };
 
+const MyPageButton = ({ children }) => {
+  const navigate = useNavigate();
+
+  return (
+    <button
+      css={{
+        fontSize: '1rem',
+        padding: '0.5rem 1rem',
+        backgroundColor: '#004FC5',
+        color: 'white',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        '&:hover': {
+          fontWeight: 'bold',
+        },
+      }}
+      onClick={() => navigate('/mypage')}
+    >
+      {children}
+    </button>
+  );
+};
+
 const Categories = () => {
+  const { isLoggedIn } = UserAuth();
+
   return (
     <div>
       <NavBar>
@@ -121,7 +155,8 @@ const Categories = () => {
             <NavItemButton prop={c}>{c.text}</NavItemButton>
           ))}
         </div>
-        <LoginButton>로그인</LoginButton>
+        {isLoggedIn && <MyPageButton>마이페이지</MyPageButton>}
+        {!isLoggedIn && <LoginButton>로그인</LoginButton>}
       </NavBar>
     </div>
   );
