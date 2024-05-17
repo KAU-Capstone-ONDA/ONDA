@@ -6,12 +6,13 @@ const UserAuth = () => {
   useEffect(() => {
     const checkLoggedInState = () => {
       const token = localStorage.getItem('accessToken');
-      setIsLoggedIn(token !== null);
-    };
+      setIsLoggedIn(token !== '' && token !== undefined);
+  };
 
     checkLoggedInState();
   }, []);
 
+  console.log('isLoggedIn:', isLoggedIn);
   return {
     isLoggedIn
   }
