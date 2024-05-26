@@ -11,7 +11,7 @@ const RedirectPage = () => {
 
     if(accessToken){
       localStorage.setItem('accessToken', accessToken);
-      navigate('/');
+      window.location.replace('/');
     }
   }, []);
 
