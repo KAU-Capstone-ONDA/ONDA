@@ -2,8 +2,8 @@
 import React from 'react';
 import FirstBlock from '../../components/main/FirstBlock';
 import firstImage from '../../assets/firstImage.svg';
-import secondImage from '../../assets/secondImage.png'
-import SecondBlock from '../../components/main/SecondBlock'
+import secondImage from '../../assets/secondImage.png';
+import SecondBlock from '../../components/main/SecondBlock';
 import UserAuth from '../../hooks/UserAuth';
 
 const MainPage = () => {
@@ -14,6 +14,7 @@ const MainPage = () => {
         minHeight: '100vh',
         flexDirection: 'column',
         alignItems: 'center',
+        backgroundColor: '#F5FAFF',
       }}
     >
       <FirstBlock

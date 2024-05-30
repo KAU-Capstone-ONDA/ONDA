@@ -7,15 +7,14 @@ const UserAuth = () => {
     const checkLoggedInState = () => {
       const token = localStorage.getItem('accessToken');
       setIsLoggedIn(token !== '' && token !== undefined);
-  };
+    };
 
     checkLoggedInState();
   }, []);
 
-  console.log('isLoggedIn:', isLoggedIn);
   return {
-    isLoggedIn
-  }
-}
+    isLoggedIn,
+  };
+};
 
 export default UserAuth;

@@ -1,7 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Spacer from '../common/Spacer';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
+import UserAuth from '../../hooks/UserAuth';
+import { useState } from 'react';
+import LoginModal from '../common/LoginModal';
 
 const Title = ({ text }) => {
   return (
@@ -35,6 +38,31 @@ const SubTitle = ({ text }) => {
 };
 
 const StartButton = () => {
+  const { isLoggedIn } = UserAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const onClick = (e) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      showModal();
+    }
+  };
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    navigate('/login');
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    navigate('/');
+    setIsModalOpen(false);
+  };
+
   return (
     <div
       css={{
@@ -43,8 +71,9 @@ const StartButton = () => {
       }}
     >
       <NavLink
-        key="settingroom"
-        to="settingroom"
+        key="settingRoomType"
+        to="settingRoomType"
+        onClick={onClick}
         css={{
           fontSize: '1.2rem',
           padding: '0.3rem 2rem',
@@ -59,19 +88,25 @@ const StartButton = () => {
       >
         시작하기
       </NavLink>
+
+      <LoginModal
+        isModalOpen={isModalOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      />
     </div>
   );
 };
 
-const MainImage = ({image}) => {
+const MainImage = ({ image }) => {
   return (
     <motion.div
       className="mainimage"
-      initial={{opacity: 0, y: 20}}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: {delay: 0.3},
+        transition: { delay: 0.3 },
       }}
     >
       <div
@@ -90,7 +125,7 @@ const MainImage = ({image}) => {
       </div>
     </motion.div>
   );
-}
+};
 
 const FirstBlock = ({ image, titleText, subTitleText }) => {
   return (
@@ -101,7 +136,7 @@ const FirstBlock = ({ image, titleText, subTitleText }) => {
       <Spacer height="1.5rem" />
       <StartButton />
       <Spacer height="4.5rem" />
-      <MainImage image={image}/>
+      <MainImage image={image} />
       <Spacer height="5.5rem" />
     </div>
   );
