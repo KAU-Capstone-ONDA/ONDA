@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/ONDA/static/css/main.e6c13ad2.css",
+    "main.js": "/ONDA/static/js/main.7884a96b.js",
+    "static/js/453.c0bb31a7.chunk.js": "/ONDA/static/js/453.c0bb31a7.chunk.js",
+    "static/media/secondImage.png": "/ONDA/static/media/secondImage.30a423ee05907c2f6b21.png",
+    "static/media/firstImage.svg": "/ONDA/static/media/firstImage.a23f184f367dd3c92ef22ece96c8ade1.svg",
+    "static/media/ic_login_kakao.png": "/ONDA/static/media/ic_login_kakao.fc5aade1df5e82feb24c.png",
+    "static/media/applogo.svg": "/ONDA/static/media/applogo.3ea6d46c87bd1f56c2ab4d4096b3bf23.svg",
+    "index.html": "/ONDA/index.html",
+    "main.e6c13ad2.css.map": "/ONDA/static/css/main.e6c13ad2.css.map",
+    "main.7884a96b.js.map": "/ONDA/static/js/main.7884a96b.js.map",
+    "453.c0bb31a7.chunk.js.map": "/ONDA/static/js/453.c0bb31a7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.7884a96b.js"
+  ]
+}
