@@ -34,7 +34,7 @@ const AddRoomTypeButton = () => {
       type="primary"
       shape="default"
       icon={<PlusOutlined style={{ color: '#004FC5' }} />}
-      onClick={() => navigate('/settingRoomType/add')}
+      onClick={() => navigate('/settingroomtype/add')}
     />
   );
 };
