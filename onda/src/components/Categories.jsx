@@ -10,7 +10,7 @@ import LoginModal from './common/LoginModal';
 
 const categories = [
   {
-    name: 'settingRoomType',
+    name: 'settingroomtype',
     text: '객실설정',
   },
   {
@@ -18,7 +18,7 @@ const categories = [
     text: '경쟁업체 등록',
   },
   {
-    name: 'settingPay',
+    name: 'settingpay',
     text: '요금플랜',
   },
 ];

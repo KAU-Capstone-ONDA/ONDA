@@ -24,12 +24,15 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/settingRoomType" element={<SettingRoomTypePage />}>
+          <Route path="/settingroomtype" element={<SettingRoomTypePage />}>
             <Route path="add" element={<AddRoomTypePage />} />
           </Route>
           <Route path="/competition" element={<CompetitionPage />} />
-          <Route path="/competition/add" element={<AddCompetitionRoomTypePage />} />
-          <Route path="/settingPay" element={<SettingPaymentPage />} />
+          <Route
+            path="/competition/add"
+            element={<AddCompetitionRoomTypePage />}
+          />
+          <Route path="/settingpay" element={<SettingPaymentPage />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route exact path="/kakaoLogin" element={<RedirectPage />} />
         </Routes>
