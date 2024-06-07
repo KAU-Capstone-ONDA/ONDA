@@ -22,6 +22,7 @@ const App = () => {
       <Spacer height="64px" />
       <div>
         <Routes>
+          <Route path="/ONDA" element={<MainPage />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/settingroomtype" element={<SettingRoomTypePage />}>
