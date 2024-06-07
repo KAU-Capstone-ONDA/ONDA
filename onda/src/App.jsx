@@ -10,12 +10,9 @@ import RedirectPage from './pages/login/RedirectPage';
 import CompetitionPage from './pages/CompetitionPage';
 import AddCompetitionRoomTypePage from './pages/addCompetitionRoomType/AddCompetitionRoomTypePage';
 import Spacer from './components/common/Spacer';
-import UserAuth from './hooks/UserAuth';
 import AddRoomTypePage from './pages/addRoomType/AddRoomTypePage';
 
 const App = () => {
-  const { isLoggedIn } = UserAuth();
-
   return (
     <div>
       <Categories />
