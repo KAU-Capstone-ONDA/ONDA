@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TabBar from '../../components/settingRoomType/TabBar';
 import TypeInfo from '../../components/settingRoomType/TypeInfo';
 import { Outlet, useLocation } from 'react-router-dom';

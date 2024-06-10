@@ -12,6 +12,9 @@ import AddCompetitionRoomTypePage from './pages/addCompetitionRoomType/AddCompet
 import Spacer from './components/common/Spacer';
 import AddRoomTypePage from './pages/addRoomType/AddRoomTypePage';
 import MappingPage from "./pages/MappingPage";
+import SignupRedirect from './pages/signup/SignupRedirect';
+import SignupPage from './pages/signup/SignupPage';
+import SignUpCompletePage from './pages/signup/SignUpCompletePage';
 
 const App = () => {
   return (
@@ -35,6 +38,24 @@ const App = () => {
               <Route path="/settingpay" element={<SettingPaymentPage />} />
               <Route path="/mypage" element={<Mypage />} />
               <Route exact path="/kakaoLogin" element={<RedirectPage />} />
+=======
+          <Route path="/" element={<MainPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/settingroomtype" element={<SettingRoomTypePage />}>
+            <Route path="add" element={<AddRoomTypePage />} />
+          </Route>
+          <Route path="/competition" element={<CompetitionPage />} />
+          <Route
+            path="/competition/add"
+            element={<AddCompetitionRoomTypePage />}
+          />
+          <Route path="/settingpay" element={<SettingPaymentPage />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route exact path="/oauthlogin" element={<RedirectPage />} />
+          <Route path="/signup" element={<SignupRedirect />} />
+          <Route path="/signup/info" element={<SignupPage />} />
+          <Route path="/signup/success" element={<SignUpCompletePage />} />
+>>>>>>> dfd5529c62d5f52e594c13452afa29f31239d23f
         </Routes>
       </div>
     </div>

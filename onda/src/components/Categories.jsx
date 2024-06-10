@@ -3,9 +3,7 @@ import { css } from '@emotion/react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import appLogo from '../assets/applogo.svg';
 import UserAuth from '../hooks/UserAuth';
-import userAuth from '../hooks/UserAuth';
 import { useState } from 'react';
-import { Modal } from 'antd';
 import LoginModal from './common/LoginModal';
 
 const categories = [
@@ -77,17 +75,16 @@ const AppLogo = () => {
   );
 };
 
-const NavItemButton = ({ children, prop, onClick }) => {
+const NavItemButton = ({ name, text, onClick }) => {
   const location = useLocation();
-  const active = location.pathname.includes(prop.name);
+  const active = location.pathname.includes(name);
 
   return (
     <NavLink
-      key={prop.name}
-      to={prop.name}
+      to={name}
       onClick={onClick}
       css={{
-        fontSize: '1.125rem',
+        fontSize: '1.75vw',
         cursor: 'pointer',
         textDecoration: 'none',
         padding: '1rem',
@@ -99,7 +96,7 @@ const NavItemButton = ({ children, prop, onClick }) => {
         },
       }}
     >
-      {children}
+      {text}
     </NavLink>
   );
 };
@@ -183,10 +180,13 @@ const Categories = () => {
       <NavBar>
         <AppLogo />
         <div>
-          {categories.map((c) => (
-            <NavItemButton prop={c} onClick={onClick}>
-              {c.text}
-            </NavItemButton>
+          {categories.map((item) => (
+            <NavItemButton
+              key={item.name}
+              name={item.name}
+              text={item.text}
+              onClick={onClick}
+            />
           ))}
         </div>
         {isLoggedIn && <MyPageButton>마이페이지</MyPageButton>}

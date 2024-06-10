@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { Col, Radio, Row, Typography } from 'antd';
-import Spacer from '../common/Spacer';
 
 const TypeRadioGroup = ({ text, options, onChange }) => {
   return (

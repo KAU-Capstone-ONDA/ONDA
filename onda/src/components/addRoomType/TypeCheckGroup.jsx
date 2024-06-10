@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { Checkbox, Col, Radio, Row } from 'antd';
+import { Checkbox, Col, Row } from 'antd';
 import Spacer from '../common/Spacer';
 
 const TypeCheckGroup = ({ text, options, onChange }) => {

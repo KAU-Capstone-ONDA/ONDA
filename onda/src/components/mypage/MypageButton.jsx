@@ -1,10 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { useNavigate } from 'react-router-dom';
 
 const LogoutButton = ({ children }) => {
-  const navigate = useNavigate();
-
   return (
     <button
       css={{
@@ -21,12 +17,13 @@ const LogoutButton = ({ children }) => {
       }}
       onClick={() => {
         localStorage.setItem('accessToken', '');
-        window.location.replace('/')
-      }}>
+        window.location.replace('/');
+      }}
+    >
       {children}
     </button>
-  )
-}
+  );
+};
 
 const MypageButton = () => {
   return (
@@ -34,6 +31,6 @@ const MypageButton = () => {
       <LogoutButton>로그아웃</LogoutButton>
     </div>
   );
-}
+};
 
 export default MypageButton;

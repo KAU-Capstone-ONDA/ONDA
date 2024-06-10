@@ -1,11 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import MypageButton from '../components/mypage/MypageButton'
+import MypageButton from '../components/mypage/MypageButton';
 
 const Mypage = () => {
-  return (
-    <MypageButton />
-  );
-}
+  return <MypageButton />;
+};
 
 export default Mypage;

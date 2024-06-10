@@ -3,9 +3,8 @@ import React from 'react';
 import { Button, Layout, Menu } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import AddRoomTypePage from '../../pages/addRoomType/AddRoomTypePage';
 
-const { Sider, Content } = Layout;
+const { Sider } = Layout;
 
 const dummyRoom = [
   {
