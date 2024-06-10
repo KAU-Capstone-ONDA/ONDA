@@ -1,0 +1,40 @@
+.scroll-container {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+.facility-options, .attraction-options, .service-options, .amenity-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.option-item {
+  background-color: #F0F5FF;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: default;
+}
+
+.ant-typography {
+  color: #2D72D9;
+}
+
+.ant-divider-horizontal {
+  margin: 12px 0;
+}
+
+.ant-rate {
+  color: #FFD700;
+}
+
+.ant-input-search-button {
+  background-color: #2D72D9;
+  border-color: #2D72D9;
+}
+
+.ant-input-search-button:hover {
+  background-color: #1A5BB8;
+  border-color: #1A5BB8;
+}

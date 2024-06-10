@@ -1,12 +1,12 @@
+// AttractionType.js
 const AttractionType = [
-  '해수욕장',
-  '강/호수',
-  '수목원/휴양림',
-  '낚시장',
+  '워터파크',
+  '온천/스파/풀장',
+  '낚시터',
   '골프장',
-  '계곡',
+  '자전거',
   '스키장',
-  '수상 레져',
+  '승마장',
 ];
 
 export default AttractionType;

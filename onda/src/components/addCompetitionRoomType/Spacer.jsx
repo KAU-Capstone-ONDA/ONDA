@@ -1,8 +1,7 @@
-/** @jsxImportSource @emotion/react */
 import React from 'react';
 
-const Spacer = ({ height }) => {
-  return <div style={{ height }} />;
-};
+const Spacer = ({ height }) => (
+  <div style={{ height }} />
+);
 
 export default Spacer;

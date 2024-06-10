@@ -1,3 +1,4 @@
+// ServiceType.js
 const ServiceType = [
   '취사 가능',
   '셔틀버스',
