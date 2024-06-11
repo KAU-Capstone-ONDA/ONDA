@@ -1,5 +1,6 @@
-/** @jsxImportSource @emotion/react */
+// /** @jsxImportSource @emotion/react */
 import { Route, Routes } from 'react-router-dom';
+import React from 'react';
 import MainPage from './pages/main/MainPage';
 import SettingPaymentPage from './pages/SettingPaymentPage';
 import LoginPage from './pages/login/LoginPage';
@@ -38,7 +39,6 @@ const App = () => {
               <Route path="/settingpay" element={<SettingPaymentPage />} />
               <Route path="/mypage" element={<Mypage />} />
               <Route exact path="/kakaoLogin" element={<RedirectPage />} />
-=======
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/settingroomtype" element={<SettingRoomTypePage />}>
@@ -55,7 +55,6 @@ const App = () => {
           <Route path="/signup" element={<SignupRedirect />} />
           <Route path="/signup/info" element={<SignupPage />} />
           <Route path="/signup/success" element={<SignUpCompletePage />} />
->>>>>>> dfd5529c62d5f52e594c13452afa29f31239d23f
         </Routes>
       </div>
     </div>

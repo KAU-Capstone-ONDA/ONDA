@@ -11,12 +11,12 @@ import AmenityType from './type/AmenityType';
 
 const { Panel } = Collapse;
 
-const AddCompetitionRoomType = ({ open, onOk }) => {
+const AddCompetitionRoomType = ({ open, onOk, setCompetitionData }) => {
   const [hotelData, setHotelData] = useState(null);
 
   const fetchHotelData = async (hotelName) => {
     try {
-      const response = await fetch(`http://13.124.42.147/v1/hotels?name=${hotelName}`);
+      const response = await fetch(`http://13.124.42.147/v1/hotel?name=${hotelName}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -24,47 +24,50 @@ const AddCompetitionRoomType = ({ open, onOk }) => {
       if (data.message === "존재하지 않는 호텔입니다.") {
         notification.error({ message: 'Error', description: data.message });
       } else {
-        setHotelData(data.data);
+        setHotelData(data.data[0]);  // Assuming data.data is an array and we need the first element
         notification.success({ message: 'Success', description: data.message });
       }
     } catch (error) {
       notification.error({ message: 'Error', description: error.message });
     }
   };
-  // const handleRegisterHotel = async () => {
-  //   if (!hotelData || hotelData.length === 0) {
-  //     notification.error({ message: 'Error', description: '등록할 호텔이 없습니다.' });
-  //     return;
-  //   }
-  //
-  //   try {
-  //     const response = await fetch('http://13.124.42.147/v1/competing-hotel', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify({ competingHotelId: hotelData[0].id }),
-  //     });
-  //
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
-  //
-  //     const result = await response.json();
-  //     if (result.message === "경쟁 호텔 등록에 성공했습니다.") {
-  //       setCompetitionData(prev => [...prev, result.data[0]]);
-  //       notification.success({ message: 'Success', description: result.message });
-  //       onOk();
-  //     } else {
-  //       notification.error({ message: 'Error', description: result.message });
-  //     }
-  //   } catch (error) {
-  //     notification.error({ message: 'Error', description: error.message });
-  //   }
-  // };
+
+  const handleRegisterHotel = async () => {
+    if (!hotelData) {
+      notification.error({ message: 'Error', description: '등록할 호텔이 없습니다.' });
+      return;
+    }
+
+    try {
+      const response = await fetch('http://13.124.42.147/v1/competing-hotel', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ competingHotelId: hotelData.id }),
+      });
+
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.message || 'Network response was not ok');
+      }
+
+      const result = await response.json();
+      if (result.message === "경쟁 호텔 등록에 성공했습니다.") {
+        setCompetitionData(prev => [...prev, result.data[0]]);
+        notification.success({ message: 'Success', description: result.message });
+        onOk();
+      } else {
+        notification.error({ message: 'Error', description: result.message });
+      }
+    } catch (error) {
+      notification.error({ message: 'Error', description: error.message });
+    }
+  };
 
   return (
     <Modal
       open={open}
-      onOk={onOk}
+      onOk={handleRegisterHotel}
+      onCancel={onOk}
       centered
       className='add-room-wrap'
       width={1600}
@@ -126,7 +129,7 @@ const AddCompetitionRoomType = ({ open, onOk }) => {
                       backgroundColor: '#F0F5FF',
                     }}
                   >
-                    {hotelData[0].region} {hotelData[0].city}
+                    {hotelData.region} {hotelData.city}
                   </div>
                   <div
                     css={{
@@ -136,132 +139,58 @@ const AddCompetitionRoomType = ({ open, onOk }) => {
                       backgroundColor: '#F0F5FF',
                     }}
                   >
-                    {hotelData[0].roomTypeLists.length > 0 ? hotelData[0].roomTypeLists.map(room => room.roomTypeName).join(', ') : 'N/A'}
+                    {hotelData.roomTypeLists && hotelData.roomTypeLists.length > 0 ? hotelData.roomTypeLists.map(room => room.roomTypeName).join(', ') : 'N/A'}
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Rate disabled defaultValue={hotelData[0].star} />
-                    <Typography.Text style={{ marginLeft: '8px' }}>{hotelData[0].star}성</Typography.Text>
+                    <Rate disabled defaultValue={hotelData.star} />
+                    <Typography.Text style={{ marginLeft: '8px' }}>{hotelData.star}성</Typography.Text>
                   </div>
                 </div>
+                <Divider />
+                <Collapse defaultActiveKey={['1']}>
+                  {hotelData.roomTypeLists && hotelData.roomTypeLists.map(room => (
+                    <Panel header={room.roomTypeName} key={room.roomTypeId}>
+                      <Typography.Title level={5}>facility 정보</Typography.Title>
+                      <div className="scroll-container">
+                        <div className="facility-options">
+                          {room.facilityOptions && room.facilityOptions.map(option => (
+                            <div key={option} className="option-item">{option}</div>
+                          ))}
+                        </div>
+                      </div>
+                      <Spacer height="12px" />
+                      <Typography.Title level={5}>attraction 정보</Typography.Title>
+                      <div className="scroll-container">
+                        <div className="attraction-options">
+                          {room.attractionOptions && room.attractionOptions.map(option => (
+                            <div key={option} className="option-item">{option}</div>
+                          ))}
+                        </div>
+                      </div>
+                      <Spacer height="12px" />
+                      <Typography.Title level={5}>service 정보</Typography.Title>
+                      <div className="scroll-container">
+                        <div className="service-options">
+                          {room.serviceOptions && room.serviceOptions.map(option => (
+                            <div key={option} className="option-item">{option}</div>
+                          ))}
+                        </div>
+                      </div>
+                      <Spacer height="12px" />
+                      <Typography.Title level={5}>amenity 정보</Typography.Title>
+                      <div className="scroll-container">
+                        <div className="amenity-options">
+                          {room.amenityOptions && room.amenityOptions.map(option => (
+                            <div key={option} className="option-item">{option}</div>
+                          ))}
+                        </div>
+                      </div>
+                    </Panel>
+                  ))}
+                </Collapse>
               </>
             )}
           </div>
-          <Divider />
-
-          <Collapse defaultActiveKey={['1']}>
-            <Panel header="스위트룸" key="1">
-              <Typography.Title level={5}>facility 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="facility-options">
-                  {FacilityType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>attraction 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="attraction-options">
-                  {AttractionType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>service 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="service-options">
-                  {ServiceType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>amenity 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="amenity-options">
-                  {AmenityType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-            </Panel>
-            <Panel header="더블룸" key="2">
-              <Typography.Title level={5}>facility 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="facility-options">
-                  {FacilityType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>attraction 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="attraction-options">
-                  {AttractionType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>service 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="service-options">
-                  {ServiceType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>amenity 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="amenity-options">
-                  {AmenityType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-            </Panel>
-            <Panel header="트윈룸" key="3">
-              <Typography.Title level={5}>facility 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="facility-options">
-                  {FacilityType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>attraction 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="attraction-options">
-                  {AttractionType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>service 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="service-options">
-                  {ServiceType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-              <Spacer height="12px" />
-              <Typography.Title level={5}>amenity 정보</Typography.Title>
-              <div className="scroll-container">
-                <div className="amenity-options">
-                  {AmenityType.map(type => (
-                    <div key={type} className="option-item">{type}</div>
-                  ))}
-                </div>
-              </div>
-            </Panel>
-          </Collapse>
-
           <div
             style={{
               display: 'flex',
@@ -270,7 +199,7 @@ const AddCompetitionRoomType = ({ open, onOk }) => {
             }}
           >
             <Button
-              onClick={onOk}
+              onClick={handleRegisterHotel}
               type="primary"
               size="large"
             >

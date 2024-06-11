@@ -84,10 +84,10 @@ const NavItemButton = ({ name, text, onClick }) => {
       to={name}
       onClick={onClick}
       css={{
-        fontSize: '1.75vw',
+        fontSize: '1vw',
         cursor: 'pointer',
         textDecoration: 'none',
-        padding: '1rem',
+        padding: '1.5rem',
         margin: '0',
         color: active ? '#004FC5' : '#333',
         transition: 'color 0.2s',
