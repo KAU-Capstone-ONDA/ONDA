@@ -2,68 +2,51 @@
 
 .competition-wrap {
     width: 100%;
+    color: #1F62C7;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    padding: 100px 20px 20px 20px;
+    padding: 20px;
 }
 
 .competition-companies {
-    flex: 1;
+    flex: 0 0 300px; /* 사이드바 크기 조정 */
     display: flex;
     flex-direction: column;
+    color: #1F62C7;
     justify-content: space-between;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .competition-companies-container {
     background-color: rgba(213, 226, 253, 0.16);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    height: 80%;
+    color: #1F62C7;
     border-radius: 8px;
     padding: 20px;
     box-sizing: border-box;
+    height: calc(100vh - 140px); /* 상단 패딩 포함한 높이 계산 */
+    overflow-y: auto;
 }
 
 .competition-companies-title {
     font-size: 1.2em;
     color: #004FC5;
     margin-top: 0;
-    margin-bottom: 50px;
-    font-weight: bold;
-}
-
-.competition-companies-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.competition-companies-list li {
-    font-size: 1em;
     margin-bottom: 20px;
-    padding: 10px 15px;
-    width: fit-content;
-    font-weight: medium;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.competition-companies-list li:last-child {
-    margin-bottom: 0;
-}
-
-.competition-companies-list li:hover,
-.competition-companies-list li.selceted {
-    background-color: #D5E2FD;
-    border-radius: 8px;
     font-weight: bold;
+}
+
+.competition-companies-scroll {
+    max-height: 80%; /* 적절한 최대 높이로 설정 */
+    overflow-y: auto;
 }
 
 .register-btn {
     width: 100%;
     font-weight: bold;
     font-size: 1.2em;
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 20px 0;
     background-color: rgba(19, 98, 255, 0.16);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -80,54 +63,45 @@
 }
 
 .room-type-wrap {
+    flex: 1;
     display: flex;
-    gap: 30px;
-    flex: 4;
-    box-sizing: border-box;
+    flex-wrap: wrap; /* 여러 줄로 감싸기 */
+    gap: 20px;
     justify-content: space-between;
 }
 
 .room-type {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
+    flex: 1 1 calc(33.333% - 20px); /* 세 개의 열로 나누기 */
+    background-color: #fff;
+    border-radius: 12px;
+    color: #1F62C7;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .room-type h3 {
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    margin-bottom: 20px;
     color: #0F62FE;
     font-weight: bold;
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
 }
 
 .room-type-container {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 50px 20px;
-    border-radius: 10px;
-    flex: 1;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: #F9FBFF;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 24px;
 }
 
 .info-section {
+    margin-bottom: 12px;
     background-color: rgba(208, 208, 208, 0.15);
     border-radius: 8px;
-    padding: 20px;
+    color: #1F62C7;
+    padding: 10px;
 }
 
 .info-section h4 {
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0 0 10px 0;
     color: #1F62C7;
     font-weight: bold;
@@ -135,4 +109,9 @@
 
 .info-section p {
     margin: 0;
+}
+
+.ant-collapse-header {
+    font-weight: bold;
+    color: #2D72D9 !important; /* 파란색 */
 }
