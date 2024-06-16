@@ -71,8 +71,8 @@ const StartButton = () => {
       }}
     >
       <NavLink
-        key="settingRoomType"
-        to="settingRoomType"
+        key="settingroom"
+        to="settingroom"
         onClick={onClick}
         css={{
           fontSize: '1.2rem',

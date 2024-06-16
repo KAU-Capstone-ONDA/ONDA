@@ -10,7 +10,6 @@ export const signUpService = async (requestBody) => {
 
     return response.data;
   } catch (e) {
-    console.log('Error: ', e);
     throw e;
   }
 };

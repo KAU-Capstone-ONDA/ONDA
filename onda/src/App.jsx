@@ -3,14 +3,14 @@ import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/main/MainPage';
 import SettingPaymentPage from './pages/SettingPaymentPage';
 import LoginPage from './pages/login/LoginPage';
-import SettingRoomTypePage from './pages/settingRoomType/SettingRoomTypePage';
+import SettingRoomPage from './pages/settingRoom/SettingRoomPage';
 import Categories from './components/Categories';
 import Mypage from './pages/Mypage';
 import RedirectPage from './pages/login/RedirectPage';
 import CompetitionPage from './pages/CompetitionPage';
 import AddCompetitionRoomTypePage from './pages/addCompetitionRoomType/AddCompetitionRoomTypePage';
 import Spacer from './components/common/Spacer';
-import AddRoomTypePage from './pages/addRoomType/AddRoomTypePage';
+import AddRoomPage from './pages/addRoom/AddRoomPage';
 import SignupRedirect from './pages/signup/SignupRedirect';
 import SignupPage from './pages/signup/SignupPage';
 import SignUpCompletePage from './pages/signup/SignUpCompletePage';
@@ -24,8 +24,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/settingroomtype" element={<SettingRoomTypePage />}>
-            <Route path="add" element={<AddRoomTypePage />} />
+          <Route path="/settingroom" element={<SettingRoomPage />}>
+            <Route path="add" element={<AddRoomPage />} />
           </Route>
           <Route path="/competition" element={<CompetitionPage />} />
           <Route

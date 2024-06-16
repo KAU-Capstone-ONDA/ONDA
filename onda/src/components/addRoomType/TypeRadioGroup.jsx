@@ -26,12 +26,12 @@ const TypeRadioGroup = ({ text, options, onChange }) => {
           {options.map((option, index) => (
             <Col key={index} span={6}>
               <Radio
-                value={option}
+                value={option.value}
                 style={{
                   fontSize: '1rem',
                 }}
               >
-                {option}
+                {option.label}
               </Radio>
             </Col>
           ))}

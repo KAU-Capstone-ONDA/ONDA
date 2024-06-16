@@ -6,7 +6,7 @@ const UserAuth = () => {
   useEffect(() => {
     const checkLoggedInState = () => {
       const token = localStorage.getItem('accessToken');
-      setIsLoggedIn(token !== '' && token !== undefined);
+      setIsLoggedIn(token !== null && token !== undefined && token !== '');
     };
 
     checkLoggedInState();

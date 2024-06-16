@@ -4,6 +4,7 @@ const theme = {
     secondary: '#333',
     hover: '#004FC5',
     lightgrey: '#adadad',
+    red: '#ff0000',
   },
 };
 
