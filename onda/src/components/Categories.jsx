@@ -8,7 +8,7 @@ import LoginModal from './common/LoginModal';
 
 const categories = [
   {
-    name: 'settingroomtype',
+    name: 'settingroom',
     text: '객실설정',
   },
   {
@@ -84,7 +84,7 @@ const NavItemButton = ({ name, text, onClick }) => {
       to={name}
       onClick={onClick}
       css={{
-        fontSize: '1.75vw',
+        fontSize: '20px',
         cursor: 'pointer',
         textDecoration: 'none',
         padding: '1rem',

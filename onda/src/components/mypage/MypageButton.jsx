@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-const LogoutButton = ({ children }) => {
+const LogoutButton = ({ onClickLogout }) => {
   return (
     <button
       css={{
@@ -15,20 +15,17 @@ const LogoutButton = ({ children }) => {
           fontWeight: 'bold',
         },
       }}
-      onClick={() => {
-        localStorage.setItem('accessToken', '');
-        window.location.replace('/');
-      }}
+      onClick={onClickLogout}
     >
-      {children}
+      로그아웃
     </button>
   );
 };
 
-const MypageButton = () => {
+const MypageButton = ({ onClickLogout }) => {
   return (
     <div>
-      <LogoutButton>로그아웃</LogoutButton>
+      <LogoutButton onClickLogout={onClickLogout} />
     </div>
   );
 };

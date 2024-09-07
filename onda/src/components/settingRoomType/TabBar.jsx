@@ -3,23 +3,10 @@ import React from 'react';
 import { Button, Layout, Menu } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import useGetRooms from '../../hooks/getRooms/useGetRooms';
+import mappingRoomType from '../../mapping/mappingRoomType';
 
 const { Sider } = Layout;
-
-const dummyRoom = [
-  {
-    key: 1,
-    label: '스위트룸',
-  },
-  {
-    key: 2,
-    label: '스탠다드룸',
-  },
-  {
-    key: 3,
-    label: '더블룸',
-  },
-];
 
 const AddRoomTypeButton = () => {
   const navigate = useNavigate();
@@ -33,7 +20,7 @@ const AddRoomTypeButton = () => {
       type="primary"
       shape="default"
       icon={<PlusOutlined style={{ color: '#004FC5' }} />}
-      onClick={() => navigate('/settingroomtype/add')}
+      onClick={() => navigate('/settingroom/add')}
     />
   );
 };
@@ -53,7 +40,13 @@ const RoomTypeTitle = ({ text }) => {
   );
 };
 
-const RoomList = ({ items }) => {
+const RoomList = ({ onClickRoomType }) => {
+  const rooms = useGetRooms();
+  const roomTypes = rooms.map((room) => ({
+    key: room.roomTypeId,
+    label: mappingRoomType(room.roomTypeName),
+  }));
+
   return (
     <Menu
       theme="light"
@@ -61,13 +54,13 @@ const RoomList = ({ items }) => {
       style={{
         padding: '0px 6px',
       }}
-      defaultSelectedKeys={['1']}
-      items={items}
+      items={roomTypes}
+      onClick={(key) => onClickRoomType(key)}
     />
   );
 };
 
-const TabBar = ({ children }) => {
+const TabBar = ({ onClickRoomType, children }) => {
   return (
     <Layout
       css={{
@@ -95,7 +88,7 @@ const TabBar = ({ children }) => {
           <RoomTypeTitle text="객실타입" />
           <AddRoomTypeButton />
         </div>
-        <RoomList items={dummyRoom} />
+        <RoomList onClickRoomType={onClickRoomType} />
       </Sider>
       {children}
     </Layout>

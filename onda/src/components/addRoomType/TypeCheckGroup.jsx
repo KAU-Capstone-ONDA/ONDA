@@ -30,8 +30,8 @@ const TypeCheckGroup = ({ text, options, onChange }) => {
         <Row gutter={[0, 6]}>
           {options.map((option, index) => (
             <Col key={index} span={6}>
-              <Checkbox style={{ fontSize: '0.95rem' }} value={option}>
-                {option}
+              <Checkbox style={{ fontSize: '0.95rem' }} value={option.value}>
+                {option.label}
               </Checkbox>
             </Col>
           ))}
