@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import SignUp from '../../components/signup/SignUp';
 import useHotelName from '../../hooks/signup/useHotelName';
 import useHotelLocation from '../../hooks/signup/useHotelLocation';
-import { signUpService } from '../../services/signUp';
+import { signUpService } from '../../services/auth/signUp';
 import { Modal } from 'antd';
 
 const errorModal = ({ message }) => {

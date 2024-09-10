@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { Modal } from 'antd';
 import { useEffect, useState } from 'react';
-import { searchKeyword } from '../../services/kakaoKeyword';
+import { searchKeyword } from '../../services/auth/kakaoKeyword';
 import Search from 'antd/es/input/Search';
 import { useDispatch } from 'react-redux';
 import { setHotelLocation, setHotelName } from '../../slices/hotelSlice';

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import TabBar from '../../components/settingRoomType/TabBar';
 import TypeInfo from '../../components/settingRoomType/TypeInfo';
 import { Outlet, useLocation } from 'react-router-dom';
-import { getRoomsService } from '../../services/getRooms';
+import { getRoomsService } from '../../services/roomCRUD/getRooms';
 import { message } from 'antd';
 import { useDispatch } from 'react-redux';
 import { setRoom } from '../../slices/getRoomsSlice';
-import { getRoomInfoService } from '../../services/getRoomInfo';
+import { getRoomInfoService } from '../../services/roomCRUD/getRoomInfo';
+import { deleteRoomService } from '../../services/roomCRUD/deleteRoom';
 
 const SettingRoomPage = () => {
   const location = useLocation();
@@ -47,7 +48,15 @@ const SettingRoomPage = () => {
     }
   }, [roomTypeId]);
 
-  const handleDeleteRoom = () => {};
+  const handleDeleteRoom = async () => {
+    try {
+      await deleteRoomService(roomTypeId.key);
+      window.location.reload();
+      message.info('객실을 삭제했습니다.');
+    } catch (e) {
+      message.error(`객실을 삭제할 수 없습니다: ${e}`);
+    }
+  };
 
   const handleModifyRoom = () => {};
 
@@ -55,7 +64,11 @@ const SettingRoomPage = () => {
     <div>
       {!isAdd && (
         <TabBar onClickRoomType={handleOnClickRoomType}>
-          <TypeInfo roomInfo={roomInfo} />
+          <TypeInfo
+            roomInfo={roomInfo}
+            handleDeleteRoom={handleDeleteRoom}
+            handleModifyRoom={handleModifyRoom}
+          />
         </TabBar>
       )}
       <Outlet />

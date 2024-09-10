@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import MypageButton from '../components/mypage/MypageButton';
-import { logoutService } from '../services/logout';
+import { logoutService } from '../services/auth/logout';
 import { message } from 'antd';
 
 const Mypage = () => {

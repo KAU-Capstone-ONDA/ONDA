@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import usePeopleCount from '../../hooks/settingRoom/usePeopleCount';
 import useRoomType from '../../hooks/settingRoom/useRoomType';
 import { message } from 'antd';
-import { addRoomService } from '../../services/addRoom';
+import { addRoomService } from '../../services/roomCRUD/addRoom';
 import useRoomCount from '../../hooks/settingRoom/useRoomCount';
 import useFacilityType from '../../hooks/settingRoom/useFacilityType';
 import useAttractionType from '../../hooks/settingRoom/useAttractionType';

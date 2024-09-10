@@ -112,15 +112,17 @@ const TypeInfoList = ({ title, typeInfo = [], mapping }: { title: string, typeIn
   );
 };
 
-const TypeInfo = ({ roomInfo }) => {
+const TypeInfo = (props) => {
   const [roomData, setRoomData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const {roomInfo, handleDeleteRoom, handleModifyRoom} = props;
 
   const showModal = () => {
     setIsModalOpen(true);
   }
 
   const handleOk = () => {
+    handleDeleteRoom();
     setIsModalOpen(false);
   };
 

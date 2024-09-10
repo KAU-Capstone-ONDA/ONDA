@@ -7,7 +7,7 @@ import SettingRoomPage from './pages/settingRoom/SettingRoomPage';
 import Categories from './components/Categories';
 import Mypage from './pages/Mypage';
 import RedirectPage from './pages/login/RedirectPage';
-import CompetitionPage from './pages/CompetitionPage';
+import CompetitionPage from './pages/competition/CompetitionPage';
 import AddCompetitionRoomTypePage from './pages/addCompetitionRoomType/AddCompetitionRoomTypePage';
 import Spacer from './components/common/Spacer';
 import AddRoomPage from './pages/addRoom/AddRoomPage';
