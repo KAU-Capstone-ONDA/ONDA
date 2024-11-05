@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const signUpApi = axios.create({
-  baseURL: '/onda/v1/member/signup',
+  baseURL: '/v1/member/signup',
 });
 
 export const signUpService = async (requestBody) => {

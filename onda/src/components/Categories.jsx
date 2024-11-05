@@ -16,6 +16,18 @@ const categories = [
     text: '경쟁업체 등록',
   },
   {
+    name: 'baseCharge',
+    text: '기본요금 설정',
+  },
+  {
+    name: 'createChargeCode',
+    text: '요금코드 생성',
+  },
+  {
+    name: 'getChargeCode',
+    text: '요금코드 조회',
+  },
+  {
     name: 'settingpay',
     text: '요금플랜',
   },
