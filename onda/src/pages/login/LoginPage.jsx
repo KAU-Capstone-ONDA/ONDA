@@ -19,9 +19,8 @@ const LoginPage = () => {
       const response = await loginService(requestBody);
 
       const accessToken = response.data?.accessToken;
-      const refreshToken = response.data?.refreshToken;
 
-      if (accessToken && refreshToken) {
+      if (accessToken) {
         localStorage.setItem('accessToken', accessToken);
         navigate('/');
       }
