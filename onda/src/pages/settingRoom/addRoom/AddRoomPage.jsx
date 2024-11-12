@@ -1,4 +1,4 @@
-import AddRoom from '../../components/addRoomType/AddRoom';
+import AddRoom from '../../../components/addRoomType/AddRoom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -9,17 +9,17 @@ import {
   setRoomCount,
   setRoomType,
   setServiceType,
-} from '../../slices/roomSlice';
+} from '../../../slices/roomSlice';
 import { useNavigate } from 'react-router-dom';
-import usePeopleCount from '../../hooks/settingRoom/usePeopleCount';
-import useRoomType from '../../hooks/settingRoom/useRoomType';
+import usePeopleCount from '../../../hooks/settingRoom/usePeopleCount';
+import useRoomType from '../../../hooks/settingRoom/useRoomType';
 import { message } from 'antd';
-import { addRoomService } from '../../services/roomCRUD/addRoom';
-import useRoomCount from '../../hooks/settingRoom/useRoomCount';
-import useFacilityType from '../../hooks/settingRoom/useFacilityType';
-import useAttractionType from '../../hooks/settingRoom/useAttractionType';
-import useServiceType from '../../hooks/settingRoom/useServiceType';
-import useAmenityType from '../../hooks/settingRoom/useAmenityType';
+import { addRoomService } from '../../../services/roomCRUD/addRoom';
+import useRoomCount from '../../../hooks/settingRoom/useRoomCount';
+import useFacilityType from '../../../hooks/settingRoom/useFacilityType';
+import useAttractionType from '../../../hooks/settingRoom/useAttractionType';
+import useServiceType from '../../../hooks/settingRoom/useServiceType';
+import useAmenityType from '../../../hooks/settingRoom/useAmenityType';
 
 const AddRoomPage = () => {
   const [roomCountValue, setRoomCountValue] = useState('');

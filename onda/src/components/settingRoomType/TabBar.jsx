@@ -60,7 +60,7 @@ const RoomList = ({ onClickRoomType }) => {
   );
 };
 
-const TabBar = ({ onClickRoomType, children }) => {
+const TabBar = ({ onClickRoomType, children, isShowAddButton }) => {
   return (
     <Layout
       css={{
@@ -86,7 +86,7 @@ const TabBar = ({ onClickRoomType, children }) => {
           }}
         >
           <RoomTypeTitle text="객실타입" />
-          <AddRoomTypeButton />
+          {isShowAddButton && <AddRoomTypeButton />}
         </div>
         <RoomList onClickRoomType={onClickRoomType} />
       </Sider>

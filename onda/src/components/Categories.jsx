@@ -27,10 +27,6 @@ const categories = [
     name: 'getChargeCode',
     text: '요금코드 조회',
   },
-  {
-    name: 'settingpay',
-    text: '요금플랜',
-  },
 ];
 
 const NavBar = ({ children }) => {

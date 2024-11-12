@@ -63,7 +63,7 @@ const SettingRoomPage = () => {
   return (
     <div>
       {!isAdd && (
-        <TabBar onClickRoomType={handleOnClickRoomType}>
+        <TabBar onClickRoomType={handleOnClickRoomType} isShowAddButton={true}>
           <TypeInfo
             roomInfo={roomInfo}
             handleDeleteRoom={handleDeleteRoom}

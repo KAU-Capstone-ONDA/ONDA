@@ -8,7 +8,7 @@ apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('accessToken');
     if (token) {
-      config.headers['Authorization'] = token; // Bearer 토큰 형식 적용
+      config.headers['Authorization'] = `Bearer ${token}`; // Bearer 토큰 형식 적용
     }
     return config;
   },

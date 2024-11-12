@@ -150,7 +150,6 @@ const TypeInfo = (props) => {
         {roomData && (
           <>
             <TypeTitle typeName={roomData.roomTypeName} />
-
             <div
               style={{
                 display: 'flex',
@@ -201,7 +200,7 @@ const TypeInfo = (props) => {
                   marginTop: '24px',
                   marginBottom: '24px'
                 }}>
-                <div
+                {handleDeleteRoom && <div
                   css={{
                     border: '0.5px solid red',
                     borderRadius: '8px',
@@ -211,15 +210,15 @@ const TypeInfo = (props) => {
                     '&:hover': {
                       color: 'white',
                       backgroundColor: 'red',
-                      fontWeight: 'bold'
+                      fontWeight: 'bold',
                     },
                   }}
                   onClick={showModal}
                 >
                   삭제
-                </div>
+                </div>}
                 <Spacer width="8px" />
-                <div
+                {handleModifyRoom && <div
                   css={{
                     border: '0.5px solid #004FC5',
                     borderRadius: '8px',
@@ -229,12 +228,12 @@ const TypeInfo = (props) => {
                     '&:hover': {
                       color: 'white',
                       backgroundColor: theme.colors.primary,
-                      fontWeight: 'bold'
+                      fontWeight: 'bold',
                     },
                   }}
                 >
                   수정
-                </div>
+                </div>}
               </div>
             </div>
             <DeleteModal isModalOpen={isModalOpen} handleCancel={handleCancel} handleOk={handleOk} />

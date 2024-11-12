@@ -22,7 +22,7 @@ const LoginPage = () => {
 
       if (accessToken) {
         localStorage.setItem('accessToken', accessToken);
-        navigate('/');
+        window.location.replace('/');
       }
     } catch (error) {
       message.error('로그인 실패. 아이디와 비밀번호를 확인하세요.');

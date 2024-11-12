@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/main/MainPage';
-import SettingPaymentPage from './pages/SettingPaymentPage';
 import LoginPage from './pages/login/LoginPage';
 import SettingRoomPage from './pages/settingRoom/SettingRoomPage';
 import Categories from './components/Categories';
@@ -10,10 +9,12 @@ import RedirectPage from './pages/login/RedirectPage';
 import CompetitionPage from './pages/competition/CompetitionPage';
 import AddCompetitionRoomTypePage from './pages/addCompetitionRoomType/AddCompetitionRoomTypePage';
 import Spacer from './components/common/Spacer';
-import AddRoomPage from './pages/addRoom/AddRoomPage';
+import AddRoomPage from './pages/settingRoom/addRoom/AddRoomPage';
 import SignupRedirect from './pages/signup/SignupRedirect';
 import SignupPage from './pages/signup/SignupPage';
 import SignUpCompletePage from './pages/signup/SignUpCompletePage';
+import BaseChargePage from './pages/baseCarge/BaseChargePage';
+import AddBaseChargePage from './pages/baseCarge/addBaseCharge/AddBaseChargePage';
 
 const App = () => {
   return (
@@ -27,12 +28,13 @@ const App = () => {
           <Route path="/settingroom" element={<SettingRoomPage />}>
             <Route path="add" element={<AddRoomPage />} />
           </Route>
+          <Route path="/baseCharge" element={<BaseChargePage />} />
+          <Route path="/baseCharge/add" element={<AddBaseChargePage />} />
           <Route path="/competition" element={<CompetitionPage />} />
           <Route
             path="/competition/add"
             element={<AddCompetitionRoomTypePage />}
           />
-          <Route path="/settingpay" element={<SettingPaymentPage />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route exact path="/oauthlogin" element={<RedirectPage />} />
           <Route path="/signup" element={<SignupRedirect />} />
