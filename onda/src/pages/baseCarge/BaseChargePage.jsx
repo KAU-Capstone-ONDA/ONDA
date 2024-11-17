@@ -48,7 +48,10 @@ const BaseChargePage = () => {
 
   return (
     <TabBar onClickRoomType={handleOnClickRoomType} isShowAddButton={false}>
-      <BaseChargeInfo baseChargeInfo={baseChargeInfo} />
+      <BaseChargeInfo
+        roomTypeId={roomTypeId.key}
+        baseChargeInfo={baseChargeInfo}
+      />
     </TabBar>
   );
 };
