@@ -14,7 +14,6 @@ import SignupRedirect from './pages/signup/SignupRedirect';
 import SignupPage from './pages/signup/SignupPage';
 import SignUpCompletePage from './pages/signup/SignUpCompletePage';
 import BaseChargePage from './pages/baseCarge/BaseChargePage';
-import AddBaseChargePage from './pages/baseCarge/addBaseCharge/AddBaseChargePage';
 
 const App = () => {
   return (
@@ -29,7 +28,6 @@ const App = () => {
             <Route path="add" element={<AddRoomPage />} />
           </Route>
           <Route path="/baseCharge" element={<BaseChargePage />} />
-          <Route path="/baseCharge/add" element={<AddBaseChargePage />} />
           <Route path="/competition" element={<CompetitionPage />} />
           <Route
             path="/competition/add"
