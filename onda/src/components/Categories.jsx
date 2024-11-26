@@ -12,20 +12,12 @@ const categories = [
     text: '객실설정',
   },
   {
-    name: 'competition',
-    text: '경쟁업체 등록',
-  },
-  {
     name: 'baseCharge',
-    text: '기본요금 설정',
+    text: '기본요금',
   },
   {
     name: 'createChargeCode',
-    text: '요금코드 생성',
-  },
-  {
-    name: 'getChargeCode',
-    text: '요금코드 조회',
+    text: '요금코드',
   },
 ];
 

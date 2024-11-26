@@ -6,7 +6,6 @@ import SettingRoomPage from './pages/settingRoom/SettingRoomPage';
 import Categories from './components/Categories';
 import Mypage from './pages/Mypage';
 import RedirectPage from './pages/login/RedirectPage';
-import CompetitionPage from './pages/competition/CompetitionPage';
 import AddCompetitionRoomTypePage from './pages/addCompetitionRoomType/AddCompetitionRoomTypePage';
 import Spacer from './components/common/Spacer';
 import AddRoomPage from './pages/settingRoom/addRoom/AddRoomPage';
@@ -14,6 +13,7 @@ import SignupRedirect from './pages/signup/SignupRedirect';
 import SignupPage from './pages/signup/SignupPage';
 import SignUpCompletePage from './pages/signup/SignUpCompletePage';
 import BaseChargePage from './pages/baseCarge/BaseChargePage';
+import CreateChargeCodePage from './pages/createChargeCode/CreateChargeCodePage';
 
 const App = () => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
             <Route path="add" element={<AddRoomPage />} />
           </Route>
           <Route path="/baseCharge" element={<BaseChargePage />} />
-          <Route path="/competition" element={<CompetitionPage />} />
+          <Route path="/createChargeCode" element={<CreateChargeCodePage />} />
           <Route
             path="/competition/add"
             element={<AddCompetitionRoomTypePage />}

@@ -4,6 +4,7 @@ import room from '../../src/slices/roomSlice';
 import getRooms from '../../src/slices/getRoomsSlice';
 import getCompetitions from '../../src/slices/getCompetitionSlice';
 import baseCharge from '../../src/slices/baseChargeSlice';
+import chargeCode from '../../src/slices/chargeCodeSlice';
 
 const rootReducer = combineReducers({
   hotel,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   getRooms,
   getCompetitions,
   baseCharge,
+  chargeCode,
 });
 
 export default rootReducer;
