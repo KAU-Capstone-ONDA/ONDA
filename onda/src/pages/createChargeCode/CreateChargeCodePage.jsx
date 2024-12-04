@@ -1,18 +1,14 @@
-import TabBar from '../../components/settingRoomType/TabBar';
-import BaseChargeInfo from '../../components/baseCharge/BaseChargeInfo';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getRoomsService } from '../../services/roomCRUD/getRooms';
 import { setRoom } from '../../slices/getRoomsSlice';
 import { message } from 'antd';
-import ChargeCodeInfo from '../../components/createChargeCode/ChargeCodeInfo';
-import { getChargeCode } from '../../services/createChargeCode/getChargeCode';
-import { setChargeCode } from '../../slices/chargeCodeSlice';
+import { getBasicCharge } from '../../services/baseCharge/getBasicCharge';
+import AddChargeCodeForm from '../../components/createChargeCode/AddChargeCodeForm';
 
 const CreateChargeCodePage = () => {
   const dispatch = useDispatch();
-  const [roomTypeId, setRoomTypeId] = useState('');
-  const [chargeCodeInfo, setChargeCodeInfo] = useState(null);
+  const [baseChargeInfo, setBaseChargeInfo] = useState(null);
 
   useEffect(() => {
     const fetchRooms = async () => {
@@ -27,27 +23,20 @@ const CreateChargeCodePage = () => {
     fetchRooms().then();
   }, []);
 
-  useEffect(() => {
-    const fetchChargeCode = async () => {
-      try {
-        const data = await getChargeCode(roomTypeId.key);
-        setChargeCodeInfo(data);
-      } catch (error) {
-        message.error(`${error}`);
-      }
-    };
-
-    fetchChargeCode().then();
-  }, [roomTypeId]);
-
   const handleOnClickRoomType = async (roomTypeId) => {
-    setRoomTypeId(roomTypeId);
+    try {
+      const data = await getBasicCharge(roomTypeId);
+      setBaseChargeInfo(data.data);
+    } catch (error) {
+      message.error(`${error}`);
+    }
   };
 
   return (
-    <TabBar onClickRoomType={handleOnClickRoomType} isShowAddButton={false}>
-      <ChargeCodeInfo />
-    </TabBar>
+    <AddChargeCodeForm
+      onClickRoomType={handleOnClickRoomType}
+      baseChargeInfo={baseChargeInfo}
+    />
   );
 };
 

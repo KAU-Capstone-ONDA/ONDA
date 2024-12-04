@@ -14,6 +14,7 @@ import SignupPage from './pages/signup/SignupPage';
 import SignUpCompletePage from './pages/signup/SignUpCompletePage';
 import BaseChargePage from './pages/baseCarge/BaseChargePage';
 import CreateChargeCodePage from './pages/createChargeCode/CreateChargeCodePage';
+import GetChargeCodePage from './pages/getChargeCode/GetChargeCodePage';
 
 const App = () => {
   return (
@@ -29,10 +30,7 @@ const App = () => {
           </Route>
           <Route path="/baseCharge" element={<BaseChargePage />} />
           <Route path="/createChargeCode" element={<CreateChargeCodePage />} />
-          <Route
-            path="/competition/add"
-            element={<AddCompetitionRoomTypePage />}
-          />
+          <Route path="/getChargeCode" element={<GetChargeCodePage />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route exact path="/oauthlogin" element={<RedirectPage />} />
           <Route path="/signup" element={<SignupRedirect />} />

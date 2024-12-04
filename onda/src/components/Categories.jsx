@@ -17,7 +17,11 @@ const categories = [
   },
   {
     name: 'createChargeCode',
-    text: '요금코드',
+    text: '요금코드 추가',
+  },
+  {
+    name: 'getChargeCode',
+    text: '요금코드 조회',
   },
 ];
 
